@@ -4,7 +4,7 @@ var class_data = {name: "Class Averages", incorrect: [0, 0, 0, 0]}
 var range_min = 0;
 var range_max = 0;
 
-function initDataset()
+function init_dataset()
 {
     var student_a = {
         name: "Student A",
@@ -30,15 +30,12 @@ function initDataset()
     };
     student_data.push(student_d);
 
-    _computeClassData();
+    _compute_class_data();
 }
 
-var _tmp_control = [];
-let drrrrr
-function _computeClassData()
+function _compute_class_data()
 {
     var tmp = [ [], [], [], [] ];
-    _tmp_control = tmp;
     student_data.forEach(function(student) { 
         for (let i = 0; i < tmp.length; i++) {
             tmp[i].push(student.incorrect[i]);
