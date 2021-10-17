@@ -73,7 +73,6 @@ function update_summary()
     let max = Math.max(...diffs.map(Math.abs));
     //console.log(max);
     let norms = diffs.map(function(a){return a / max;});
-    console.log(norms);
 
     var small = [];
     var big = [];
@@ -89,12 +88,23 @@ function update_summary()
 
     summary.innerHTML = "";
     if (small.length > 0) {
-        summary.innerHTML += name + " needs a bit of help with questions of type(s): " + gen_cat_list(small) + ".<br>";
+        summary.innerHTML += name + " needs a bit of help with questions of type(s): " + gen_cat_list(small) + ".<br><br>";
     }
     if (big.length > 0) { 
-        summary.innerHTML += name + " needs a lot of help with questions of type(s): " + gen_cat_list(big) + ".<br>";
+        summary.innerHTML += name + " needs a lot of help with questions of type(s): " + gen_cat_list(big) + ".<br><br>";
     }
 
+    var class_max = average(class_data.incorrect);
+    var class_abs = class_data.incorrect.map(function(a){return a / class_max;});
+    var tmp = [];
+    for (let i = 0; i < class_abs.length; i++) { 
+        if (class_abs[i] > 1) {
+            tmp.push(i);
+        }
+    }
+    if (tmp.length > 0) {
+        summary.innerHTML += "Most of the class seemed to struggle with questions of type(s): " + gen_cat_list(tmp) + ".";
+    }
     
 }
 
