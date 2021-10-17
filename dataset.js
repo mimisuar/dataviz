@@ -30,6 +30,18 @@ function init_dataset()
     };
     student_data.push(student_d);
 
+    var student_e = {
+        name: "Student E",
+        incorrect: [0, 0, 3, 0]
+    };
+    student_data.push(student_e);
+
+    var student_f = {
+        name: "Student F",
+        incorrect: [4, 2, 0, 1]
+    };
+    student_data.push(student_f);
+
     _compute_class_data();
 }
 

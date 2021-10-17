@@ -78,7 +78,7 @@ function update_summary()
     var big = [];
     for (let i = 0; i < norms.length; i++) {
         if (norms[i] < 0) {
-            if (norms[i] > -0.5) {
+            if (norms[i] > -0.75) {
                 small.push(i);
             } else {
                 big.push(i);
@@ -88,10 +88,10 @@ function update_summary()
 
     summary.innerHTML = "";
     if (small.length > 0) {
-        summary.innerHTML += name + " needs a bit of help with questions of type(s): " + gen_cat_list(small) + ".<br><br>";
+        summary.innerHTML += name + " had some trouble with questions of type(s): " + gen_cat_list(small) + ".<br><br>";
     }
     if (big.length > 0) { 
-        summary.innerHTML += name + " needs a lot of help with questions of type(s): " + gen_cat_list(big) + ".<br><br>";
+        summary.innerHTML += name + " needs <i>a lot</i> of help with questions of type(s): " + gen_cat_list(big) + ".<br><br>";
     }
 
     var class_max = average(class_data.incorrect);
