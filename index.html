@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <script src="plotly.js" async=false ></script>
+        <script src="dataset.js" async=false ></script>
+        <script src="dataviz.js" async=false ></script>
+        
+    </head>
+
+    <body onload="initDataset();initPlot()">
+        <div id="summary_div">
+            <p id="summary">
+                Here, I'm going to populate this with a lot of text just so I can see how the formatting changes.
+                This is all going to get fixed later!
+            </p>
+        </div>
+        
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+        <button id="left_button" onclick="prev_student();"> &lt; </button>
+        <div id="student_graph" style="width: 640px; height: 480px;"></div>
+        <button id="right_button" onclick="next_student();"> &gt; </button>
+        
+
+        <!--<style rel="stylesheet" href="style.css"></style>-->
+    </body>
+</html>

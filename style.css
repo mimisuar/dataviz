@@ -1,0 +1,25 @@
+#student_graph {
+    border: 3px solid black;
+    position: relative;
+    left: 30%;
+}
+
+#left_button {
+    position: relative;
+    top: 518px;
+    left: 2%;
+    width: 64px;
+    height: 64px;
+}
+
+#right_button {
+    position: relative;
+    bottom: 32px;
+    left: 10%;
+    width: 64px;
+    height: 64px;
+}
+
+#summary {
+    font-size: 32px;
+}
