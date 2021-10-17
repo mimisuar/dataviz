@@ -35,9 +35,7 @@ function initPlot() {
     var settings = {staticPlot: true};
 
     Plotly.newPlot(graph_div, data, layout, settings);
-    
-
-    console.log(Plotly.BUILD);
+    update_summary();
 }
 
 function next_student()
@@ -56,4 +54,11 @@ function prev_student()
         current_student = student_data.length - 1;
     }
     initPlot();
+}
+
+function update_summary()
+{
+    var summary = document.getElementById("summary");
+    
+    
 }
