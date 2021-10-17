@@ -1,6 +1,6 @@
 var student_data = [];
 var cats = ["Type 1", "Type 2", "Type 3", "Type 4"];
-var class_data = {name: "Class Median", incorrect: [0, 0, 0, 0]}
+var class_data = {name: "Class Averages", incorrect: [0, 0, 0, 0]}
 var range_min = 0;
 var range_max = 0;
 
@@ -8,25 +8,25 @@ function initDataset()
 {
     var student_a = {
         name: "Student A",
-        incorrect: [2, 8, 4, 3]
+        incorrect: [2, 3, 4, 3]
     };
     student_data.push(student_a);
 
     var student_b = {
         name: "Student B",
-        incorrect: [8, 1, 0, 0]
+        incorrect: [1, 1, 4, 0]
     };
     student_data.push(student_b);
 
     var student_c = {
         name: "Student C",
-        incorrect: [0, 2, 4, 6]
+        incorrect: [0, 0, 4, 0]
     };
     student_data.push(student_c);
 
     var student_d = {
         name: "Student D",
-        incorrect: [0, 1, 0, 2]
+        incorrect: [0, 1, 3, 2]
     };
     student_data.push(student_d);
 
