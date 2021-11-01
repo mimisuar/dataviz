@@ -89,3 +89,11 @@ function average(values) {
 
     return sum / values.length;
 }
+
+function standard_deviation(values) {
+    if (values.length === 0) throw new Error("No inputs");
+    var avg = average(values);
+    var tmp_diff = values.map(function(x) { return Math.pow(x - avg, 2)});
+    var varience = average(tmp_diff);
+    return Math.sqrt(varience);
+}

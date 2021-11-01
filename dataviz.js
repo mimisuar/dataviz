@@ -45,7 +45,7 @@ function init_plot() {
     var settings = {staticPlot: true};
 
     Plotly.newPlot(graph_div, data, layout, settings);
-    update_summary();
+    update_summary2();
 }
 
 function rgb_to_str(r, g, b)
@@ -157,6 +157,11 @@ function update_summary()
         summary.innerHTML += "Most of the class seemed to struggle with questions of type(s): " + gen_cat_list(tmp) + ".";
     }
     
+}
+
+function update_summary2()
+{
+
 }
 
 function gen_cat_list(listcat)
