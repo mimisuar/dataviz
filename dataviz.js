@@ -29,13 +29,64 @@ function init_plot() {
             title: "Number of incorrect answers",
             range: [range_min, range_max]
         },
-        barmode: "group"
+        barmode: "group",
+
+        shapes: [
+            create_line(passing_line, 0, 0, 0),
+            create_line(success_line, 0, 20, 0)
+        ],
+
+        annotations: [
+            create_text(passing_line, "nerd"),
+            create_text(success_line, "bruv"),
+        ]
     };
 
     var settings = {staticPlot: true};
 
     Plotly.newPlot(graph_div, data, layout, settings);
     update_summary();
+}
+
+function rgb_to_str(r, g, b)
+{
+    return "rgb(" + String(r) + "," + String(g) + "," + String(b) + ")";
+}
+
+function create_text(yval, text)
+{
+    return {
+        showarrow: false,
+        text: "<b>" + text + "</b>",
+        font: {
+            family: "Arial",
+            size: 18,
+            color: "#000000"
+        },
+        x: 1,
+        y: yval,
+        xref: "paper",
+        yanchor: "top",
+        xanchor: "right",
+    };
+}
+
+function create_line(yval, r, g, b)
+{
+    return {
+        type: "line",
+        xref: "paper",
+        x0: 0,
+        x1: 1,
+        y0: yval,
+        y1: yval,
+        label: "nerd",
+        line: {
+            color: rgb_to_str(r, g, b),
+            width: 3,
+            dash: "solid"
+        }
+    }
 }
 
 function next_student()
