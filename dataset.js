@@ -1,5 +1,5 @@
 var student_data = [];
-var cats = ["Type 1", "Type 2", "Type 3", "Type 4"];
+var cats = ["Q1", "Q2", "Q3", "Q4"];
 var class_data = {name: "Class Averages", incorrect: [0, 0, 0, 0]}
 var range_min = 0;
 var range_max = 0;

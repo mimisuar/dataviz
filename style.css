@@ -7,7 +7,7 @@
 #left_button {
     position: relative;
     top: 422px;
-    left: 64px;
+    left: 5%;
     width: 64px;
     height: 64px;
 }
@@ -15,7 +15,15 @@
 #right_button {
     position: relative;
     bottom: 128px;
-    left: 158px;
+    left: 24%;
+    width: 64px;
+    height: 64px;
+}
+
+#Q_button {
+    position: relative;
+    bottom: 48px;
+    left: 2%;
     width: 64px;
     height: 64px;
 }

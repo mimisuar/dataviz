@@ -11,34 +11,25 @@ function init_plot() {
         y: student_data[current_student].incorrect,
     };
 
-    var data2 = {
-        name: class_data.name,
-        type: "bar",
-        x: cats,
-        y: class_data.incorrect
-    };
-
-    var data = [data2, data1];
+    var data = [data1];
 
     var layout = {
         title: student_data[current_student].name + " Results",
         xaxis: {
-            title: "Question type"
+            title: "Question"
         },
         yaxis: {
-            title: "Number of incorrect answers",
+            title: "Number of points earned",
             range: [range_min, range_max]
         },
         barmode: "group",
 
         shapes: [
             create_line(passing_line, 0, 0, 0),
-            create_line(success_line, 0, 20, 0)
         ],
 
         annotations: [
-            create_text(passing_line, "nerd"),
-            create_text(success_line, "bruv"),
+            create_text(passing_line, "passing"),
         ]
     };
 
@@ -174,4 +165,11 @@ function gen_cat_list(listcat)
         }
     }
     return tmp;
+}
+
+function see_question(question)
+{
+    var test = prompt("Get my thing: ")
+    localStorage.setItem("fucky", test)
+    window.location.href = "question.html";
 }
