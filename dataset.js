@@ -11,7 +11,9 @@ function init_dataset()
         name: "Student A",
         points: [5, 7, 6],
         questions: [
-
+            "Drew the particles velocity curve as a straight line.",
+            "2",
+            "3"
         ]
     };
     student_data.push(student_a);
@@ -20,7 +22,9 @@ function init_dataset()
         name: "Student B",
         points: [2, 3, 4],
         questions: [
-
+            "y",
+            "ur",
+            "mom"
         ]
     };
     student_data.push(student_b);
@@ -29,7 +33,9 @@ function init_dataset()
         name: "Student C",
         points: [7, 1, 5],
         questions: [
-
+            "my",
+            "only",
+            "hope"
         ]
     };
     student_data.push(student_c);

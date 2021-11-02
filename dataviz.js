@@ -14,6 +14,7 @@ function init_plot() {
         name: student_data[current_student].name,
         x: cats,
         y: student_data[current_student].points,
+        text: student_data[current_student].points.map(String),
     };
 
     var data = [data1];
@@ -87,7 +88,6 @@ function create_line(yval, r, g, b)
 
 function next_student()
 {
-    console.log("Not owkr");
     current_student++;
     if (current_student >= student_data.length) {
         current_student = 0;
@@ -97,7 +97,6 @@ function next_student()
 
 function prev_student()
 {
-    console.log("owkr");
     current_student--;
     if (current_student < 0) {
         current_student = student_data.length - 1;
@@ -121,7 +120,21 @@ function update_summary()
     var summary = document.getElementById("summary");
     summary.innerHTML = "<b>Summary</b><br>";
 
-    
+    var name = student_data[current_student].name;
+    var points = student_data[current_student].points;
+    var found = false;
+    for (var i = 0; i < 3; i++) {
+        console.log(points[i], passing_line);
+        if (points[i] < passing_line) {
+            if (!found) { summary.innerHTML += name + " is struggling with questions "; found = true; }
+            summary.innerHTML += String(i + 1) + ", ";
+        }
+    }
+
+    if (found) {
+        summary.innerHTML = summary.innerHTML.substring(0, summary.innerHTML.length - 2);
+        summary.innerHTML += ".";
+    }
 }
 
 function update_question()
@@ -129,6 +142,7 @@ function update_question()
     var summary = document.getElementById("summary");
     var question_title = "Question " + String(current_question + 1);
     summary.innerHTML = "<b>" + question_title + "</b> <br>"
+    summary.innerHTML += student_data[current_student].questions[current_question];
 }
 
 function gen_cat_list(listcat)
