@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Question Analysis</title>
+        <title>Dataviz Prototype</title>
         <script src="plotly.js" async=false ></script>
         <script src="dataset.js" async=false ></script>
-        <script src="dataviz.js" async=false ></script>
+        <script src="questionviz.js" async=false ></script>
         
     </head>
 
-    <body onload="init_dataset()">
-        <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <body onload="init_dataset();">
+        <p id="summary_title">Summary of student A</p>
+        <div id="summary_div2" style="width: 80%;height: 50%">
+            <p id="summary"></p>
+        </div>
         
-        <p>Work in progress</p>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
     </body>
 </html>

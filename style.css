@@ -36,6 +36,22 @@
     overflow:scroll;
 }
 
+#summary_div2 {
+    position: absolute;
+    margin: 32px;
+    padding: 2px;
+    border:3px solid black;
+    overflow:scroll;
+}
+
+#summary_title {
+    position: relative;
+    font-size: 48px;
+    padding: 4px;
+    margin: 4px;
+    left: 25px;
+}
+
 #summary {
     text-overflow: clip;
     word-wrap: break-word;

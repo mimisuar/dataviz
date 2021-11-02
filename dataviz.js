@@ -1,7 +1,11 @@
 
-var current_student = 0;
+var current_student = null;
 
 function init_plot() {
+    if (current_student === null) {
+        current_student = Number(localStorage.getItem("current_student"));
+        if (current_student === NaN) { current_student = 0; } 
+    }
     var graph_div = document.getElementById("student_graph");
 
     var data1 = {
@@ -82,6 +86,7 @@ function create_line(yval, r, g, b)
 
 function next_student()
 {
+    console.log("Not owkr");
     current_student++;
     if (current_student >= student_data.length) {
         current_student = 0;
@@ -91,6 +96,7 @@ function next_student()
 
 function prev_student()
 {
+    console.log("owkr");
     current_student--;
     if (current_student < 0) {
         current_student = student_data.length - 1;
@@ -169,7 +175,6 @@ function gen_cat_list(listcat)
 
 function see_question(question)
 {
-    var test = prompt("Get my thing: ")
-    localStorage.setItem("fucky", test)
+    localStorage.setItem("current_student", current_student);
     window.location.href = "question.html";
 }
