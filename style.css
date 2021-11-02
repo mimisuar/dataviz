@@ -52,6 +52,12 @@
     left: 25px;
 }
 
+#summary_back {
+    position: relative;
+    left: 3%;
+    top: 6%;
+}
+
 #summary {
     text-overflow: clip;
     word-wrap: break-word;

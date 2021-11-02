@@ -176,5 +176,6 @@ function gen_cat_list(listcat)
 function see_question(question)
 {
     localStorage.setItem("current_student", current_student);
+    console.log(current_student);
     window.location.href = "question.html";
 }

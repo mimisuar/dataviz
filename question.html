@@ -8,11 +8,13 @@
         
     </head>
 
-    <body onload="init_dataset();">
-        <p id="summary_title">Summary of student A</p>
+    <body onload="init_dataset();init_summary();">
+        <p id="summary_title"></p>
+        <button id="summary_back" onclick="back_to_main();">Back</button>
         <div id="summary_div2" style="width: 80%;height: 50%">
             <p id="summary"></p>
         </div>
+        
         
         <link rel="stylesheet" type="text/css" href="style.css"></link>
     </body>
