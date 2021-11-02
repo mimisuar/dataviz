@@ -11,9 +11,9 @@ function init_dataset()
         name: "Student A",
         points: [5, 7, 6],
         questions: [
-            "Drew the particles velocity curve as a straight line.",
-            "2",
-            "3"
+            "Drew the particles velocity curve as a straight line. ",
+            "No feedback",
+            "Failed to account for mass of second box."
         ]
     };
     student_data.push(student_a);
@@ -22,20 +22,20 @@ function init_dataset()
         name: "Student B",
         points: [2, 3, 4],
         questions: [
-            "y",
-            "ur",
-            "mom"
+            "Drew the particles velocity curve incorrectly. ",
+            "Failed to account for friction of box. Found incorrect force formula.",
+            "Failed to account for mass of second box. Found incorrect force formula."
         ]
     };
     student_data.push(student_b);
 
     var student_c = {
         name: "Student C",
-        points: [7, 1, 5],
+        points: [7, 0, 5],
         questions: [
-            "my",
-            "only",
-            "hope"
+            "No feedback",
+            "No response. Check in with student.",
+            "Found incorrect force formula."
         ]
     };
     student_data.push(student_c);
