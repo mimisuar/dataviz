@@ -1,5 +1,6 @@
 
-var current_student = null;
+var current_student = 0;
+var current_question = -1;
 
 function init_plot() {
     if (current_student === null) {
@@ -12,7 +13,7 @@ function init_plot() {
         type: "bar",
         name: student_data[current_student].name,
         x: cats,
-        y: student_data[current_student].incorrect,
+        y: student_data[current_student].points,
     };
 
     var data = [data1];
@@ -40,7 +41,7 @@ function init_plot() {
     var settings = {staticPlot: true};
 
     Plotly.newPlot(graph_div, data, layout, settings);
-    update_summary2();
+    update_box();
 }
 
 function rgb_to_str(r, g, b)
@@ -104,61 +105,30 @@ function prev_student()
     init_plot();
 }
 
+function update_box()
+{
+    console.log("Current question is " + String(current_question));
+    if (current_question == -1) {
+        update_summary();
+    }
+    else {
+        update_question();
+    }
+}
+
 function update_summary()
 {
     var summary = document.getElementById("summary");
-    
-    var student = student_data[current_student];
-    var name = student.name;
-    console.log("Updating summary for " + name + "...");
+    summary.innerHTML = "<b>Summary</b><br>";
 
-    let diffs = [];
-    for (let i = 0; i < student.incorrect.length; i++) {
-        let diff = class_data.incorrect[i] - student.incorrect[i];
-        diffs.push(diff);
-    }
-    
-    let max = Math.max(...diffs.map(Math.abs));
-    //console.log(max);
-    let norms = diffs.map(function(a){return a / max;});
-
-    var small = [];
-    var big = [];
-    for (let i = 0; i < norms.length; i++) {
-        if (norms[i] < 0) {
-            if (norms[i] > -0.75) {
-                small.push(i);
-            } else {
-                big.push(i);
-            }
-        }
-    }
-
-    summary.innerHTML = "";
-    if (small.length > 0) {
-        summary.innerHTML += name + " had some trouble with questions of type(s): " + gen_cat_list(small) + ".<br><br>";
-    }
-    if (big.length > 0) { 
-        summary.innerHTML += name + " needs <i>a lot</i> of help with questions of type(s): " + gen_cat_list(big) + ".<br><br>";
-    }
-
-    var class_max = average(class_data.incorrect);
-    var class_abs = class_data.incorrect.map(function(a){return a / class_max;});
-    var tmp = [];
-    for (let i = 0; i < class_abs.length; i++) { 
-        if (class_abs[i] > 1) {
-            tmp.push(i);
-        }
-    }
-    if (tmp.length > 0) {
-        summary.innerHTML += "Most of the class seemed to struggle with questions of type(s): " + gen_cat_list(tmp) + ".";
-    }
     
 }
 
-function update_summary2()
+function update_question()
 {
-
+    var summary = document.getElementById("summary");
+    var question_title = "Question " + String(current_question + 1);
+    summary.innerHTML = "<b>" + question_title + "</b> <br>"
 }
 
 function gen_cat_list(listcat)
@@ -175,7 +145,8 @@ function gen_cat_list(listcat)
 
 function see_question(question)
 {
-    localStorage.setItem("current_student", current_student);
-    console.log(current_student);
-    window.location.href = "question.html";
+    if (question >= -1 && question < 3) {
+        current_question = question
+    }
+    update_box();
 }
